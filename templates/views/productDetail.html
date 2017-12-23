@@ -9,19 +9,18 @@
                 <div class='hidden-xs'>
                     <div class='swiper-container gallery-top' style='margin-bottom: 15pt'>
                         <div class='swiper-wrapper'>
-                            {%for img in product.images%}
-                            <img alt="{{product.name}}" class="swiper-slide img-responsive" src="{{img.url}}" /> {%endfor%}
+
+                            <img alt="{{product.name}}" class="swiper-slide img-responsive" src="{{product.images[0].url}}" id="showImage" />
 
                         </div>
                     </div>
                     <div class='swiper-container gallery-thumbs'>
-                        <div class='swiper-wrapper row'>
+                        <div class='swiper-wrapper row' id="selectImages">
                             {%for img in product.images%}
-                            <div class="col-md-3">
 
 
-                                <img alt="{{product.name}}" class="swiper-slide img-responsive" src="{{img.url}}" /> {%endfor%}
-                            </div>
+
+                            <img alt="{{product.name}}" style="width:20%;" class="swiper-slide img-responsive" src="{{img.url}}" /> {%endfor%}
 
                         </div>
                     </div>
@@ -41,47 +40,69 @@
                 <div class='detailed-product-set-info-container'>
                     <div class='row'>
                         <div class='col-md-7'>
-                            <h3>6种口味迷你纸杯蛋糕礼盒</h3>
+                            <h3>{{product.name}}</h3>
                             <div class='long-description'>
-                                <p>想要多一点选择、再多一点选择？一盒6种口味迷你纸杯蛋糕，一次给你6种经典口味！小巧可人的身材、眼花缭乱的搭配，为你的聚会增香添色！</p>
+                                <!-- <p>想要多一点选择、再多一点选择？一盒6种口味迷你纸杯蛋糕，一次给你6种经典口味！小巧可人的身材、眼花缭乱的搭配，为你的聚会增香添色！</p> -->
 
                             </div>
                             <div class='ingredients'>
-                                <div class='ingredients-header'>口味亮点</div>
+                                <!-- <div class='ingredients-header'>口味亮点</div> -->
                                 <div class='ingredients-description'>
-                                    可可粉、奶油奶酪、黄油、乳脂奶油、砂糖、糖粉、面粉、鸡蛋、柠檬、香蕉、牛奶、核桃、蜂蜜、肉桂、黑巧克力、榛子、天然薄荷精、薄荷酒
+                                    <!-- 可可粉、奶油奶酪、黄油、乳脂奶油、砂糖、糖粉、面粉、鸡蛋、柠檬、香蕉、牛奶、核桃、蜂蜜、肉桂、黑巧克力、榛子、天然薄荷精、薄荷酒 -->
                                 </div>
                             </div>
-                            <div class='row sweetness_content visible-xs'>
+                            <!-- <div class='row sweetness_content visible-xs'>
                                 <span class='sweet_btn'>甜度值</span>
                                 <img alt="S img1" src="/assets/s_img1-8591701fb8d1536f0bacb1b8b909b620.png" />
                                 <img alt="S img1" src="/assets/s_img1-8591701fb8d1536f0bacb1b8b909b620.png" />
                                 <img alt="S img1" src="/assets/s_img1-8591701fb8d1536f0bacb1b8b909b620.png" />
                                 <img alt="S img2" src="/assets/s_img2-43509ea2b3ac0eefe3b81e8e542c5c2c.png" />
                                 <img alt="S img3" src="/assets/s_img3-56b94cd2c924d4d5fd1f71a4182feb4e.png" />
-                            </div>
+                            </div> -->
 
                         </div>
-                        <div data-react-class="ProductSet" data-react-props="{&quot;product_infos&quot;:[{&quot;id&quot;:10006,&quot;show_size&quot;:&quot;礼盒&quot;,&quot;price&quot;:180.0}],&quot;is_can_buy&quot;:true,&quot;product_set&quot;:{&quot;id&quot;:174,&quot;product_category_id&quot;:16,&quot;chinese_name&quot;:&quot;6种口味迷你纸杯蛋糕礼盒&quot;,&quot;english_name&quot;:&quot;6-Flavor Mini Cupcake Set&quot;,&quot;chinese_tab_name&quot;:&quot;6种口味迷你纸杯蛋糕&quot;,&quot;english_tab_name&quot;:&quot;6 Flavor Mini Cupcake &quot;,&quot;sweetness&quot;:3.5,&quot;chinese_short_description&quot;:&quot;迷你纸杯，六种口味，更多选择，畅享聚会&quot;,&quot;english_short_description&quot;:&quot;Charming, delicious and fun.&quot;,&quot;chinese_medium_description&quot;:&quot;\u003cp\u003e迷你纸杯，六种口味，更多选择，畅享聚会\u003c/p\u003e\r\n&quot;,&quot;english_medium_description&quot;:&quot;\u003cp\u003eCharming, delicious and fun.\u003c/p\u003e\r\n&quot;,&quot;chinese_long_description&quot;:&quot;\u003cp\u003e想要多一点选择、再多一点选择？一盒6种口味迷你纸杯蛋糕，一次给你6种经典口味！小巧可人的身材、眼花缭乱的搭配，为你的聚会增香添色！\u003c/p\u003e\r\n&quot;,&quot;english_long_description&quot;:&quot;\u003cp\u003e\u003cspan style=\&quot;font-size: 14px; color: rgb(69, 69, 69); font-family: &#39;Lucida Grande&#39;, &#39;Lucida Sans Unicode&#39;, sans-serif;\&quot;\u003eOur new mini cupcake set includes\u0026nbsp;\u003c/span\u003e\u003cspan style=\&quot;font-size: 14px; color: rgb(69, 69, 69); font-family: &#39;Lucida Grande&#39;, &#39;Lucida Sans Unicode&#39;, sans-serif;\&quot;\u003e6 classic flavours,\u003c/span\u003e\u003cspan style=\&quot;font-size: 14px; color: rgb(69, 69, 69); font-family: &#39;Lucida Grande&#39;, &#39;Lucida Sans Unicode&#39;, sans-serif;\&quot;\u003e\u0026nbsp;\u003c/span\u003e\u003cspan style=\&quot;font-size: 14px; color: rgb(69, 69, 69); font-family: &#39;Lucida Grande&#39;, &#39;Lucida Sans Unicode&#39;, sans-serif;\&quot;\u003ered velvet, raspberry red velvet, lemon, banana, chocolate, mint chocolate, perfect for sharing.\u003c/span\u003e\u003c/p\u003e\r\n&quot;,&quot;front_page_image_file_name&quot;:&quot;迷你纸杯首页新品推荐.jpg&quot;,&quot;front_page_image_content_type&quot;:&quot;image/jpeg&quot;,&quot;front_page_image_file_size&quot;:42680,&quot;front_page_image_updated_at&quot;:&quot;2017-08-24T08:18:57.000Z&quot;,&quot;product_category_image_file_name&quot;:&quot;产品列表.jpg&quot;,&quot;product_category_image_content_type&quot;:&quot;image/jpeg&quot;,&quot;product_category_image_file_size&quot;:8813,&quot;product_category_image_updated_at&quot;:&quot;2017-08-24T08:18:57.000Z&quot;,&quot;detailed_image_file_name&quot;:&quot;详情图_(2).jpg&quot;,&quot;detailed_image_content_type&quot;:&quot;image/jpeg&quot;,&quot;detailed_image_file_size&quot;:562835,&quot;detailed_image_updated_at&quot;:&quot;2017-08-02T06:24:44.000Z&quot;,&quot;created_at&quot;:&quot;2017-08-02T06:24:45.000Z&quot;,&quot;updated_at&quot;:&quot;2017-11-04T08:51:10.000Z&quot;,&quot;url&quot;:&quot;6-flavor-mini-cupcake-set&quot;,&quot;chinese_ingredients_description&quot;:&quot;可可粉、奶油奶酪、黄油、乳脂奶油、砂糖、糖粉、面粉、鸡蛋、柠檬、香蕉、牛奶、核桃、蜂蜜、肉桂、黑巧克力、榛子、天然薄荷精、薄荷酒&quot;,&quot;english_ingredients_description&quot;:&quot;Cocoa powder, cream cheese, butter, whipped cream, granulated sugar, icing sugar, flour, eggs, lemons, bananas, milk, walnuts, honey, cinnamons, dark chocolate, hazelnuts, mint flavor, mint liqueur.&quot;,&quot;earliest_delivery_date&quot;:null,&quot;end_delivery_date&quot;:null,&quot;icon_name&quot;:&quot;new_img&quot;,&quot;is_active&quot;:true},&quot;current_product&quot;:{&quot;id&quot;:10006,&quot;show_size&quot;:&quot;礼盒&quot;,&quot;price&quot;:0.0},&quot;products_cost&quot;:0.0,&quot;products_count&quot;:0,&quot;storages_product_info&quot;:{},&quot;tuiguang_product_info&quot;:{}}"></div>
+                        <div class="col-md-5 product-offerings" data-reactid=".0">
+                            <div class="product-sizes" data-reactid=".0.0">
+                                <span class="selected size-selection" data-reactid=".0.0.0">礼盒</span>
+                            </div>
+                            <div class="product-count" data-reactid=".0.2">
+                                <div class="product-count-container" data-reactid=".0.2.0">
+                                    <span id="product-price" data-reactid=".0.2.0.0">¥0</span>
+                                    <span class="fa fa-minus" data-reactid=".0.2.0.1"></span>
+                                    <input id="product-count" name="product_count" class="product-count" type="number"
+                                        value="1" data-reactid=".0.2.0.2">
+                                    <span class="fa fa-plus" data-reactid=".0.2.0.3"></span>
+                                </div>
+                                <div id="action-buttons" data-reactid=".0.2.1">
+                                    <div id="buy-now-button" data-reactid=".0.2.1.0">立即购买</div>
+                                    <div id="add-to-cart-button" data-reactid=".0.2.1.1">
+                                        <span class="fa fa-shopping-cart" data-reactid=".0.2.1.1.0"></span>
+                                        <span data-reactid=".0.2.1.1.1">加入购物车</span>
+                                    </div>
+                                </div>
+                                <div id="action-completed-status" data-reactid=".0.2.2"></div>
+                                <div data-reactid=".0.2.4"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class='hidden-xs row sweetness_content'>
+                    <!-- <div class='hidden-xs row sweetness_content'>
                         <span class='sweet_btn'>甜度值</span>
                         <img alt="S img1" src="/assets/s_img1-8591701fb8d1536f0bacb1b8b909b620.png" />
                         <img alt="S img1" src="/assets/s_img1-8591701fb8d1536f0bacb1b8b909b620.png" />
                         <img alt="S img1" src="/assets/s_img1-8591701fb8d1536f0bacb1b8b909b620.png" />
                         <img alt="S img2" src="/assets/s_img2-43509ea2b3ac0eefe3b81e8e542c5c2c.png" />
                         <img alt="S img3" src="/assets/s_img3-56b94cd2c924d4d5fd1f71a4182feb4e.png" />
-                    </div>
+                    </div> -->
 
                     <div class='divider'>&nbsp;</div>
                     <div class='more-detailed-info'>
                         <div class='bold-header'>
-                            温馨提示
+                            <!-- 温馨提示 -->
                         </div>
-                        <div class='wenxintishi'>
+                        <!-- <div class='wenxintishi'>
                             1、蛋糕收到后在2-3小时食用最佳, 纸杯蛋糕收到后在1小时食用最佳，如果食用不完请冷藏保存（冰激凌蛋糕请冷冻保存），在24小时内食用完毕
                             <br> 2、如对上述食材有过敏经历者请选择其它款蛋糕
-                        </div>
+                        </div> -->
                     </div>
                     <br>
                     <table class='cake-size-table'>
@@ -99,4 +120,9 @@
 </a>
 </div>
 </div>
-{%endblock%}
+<script>
+    $('#selectImages').children('img').mouseenter(function () {
+        let src = $(this).attr('src');
+        $('#showImage').attr('src', src);
+    })
+</script> {%endblock%}
