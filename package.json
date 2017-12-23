@@ -1,0 +1,31 @@
+{
+  "name": "keystone-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/24wings/keystone-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/24wings/keystone-demo/issues"
+  },
+  "homepage": "https://github.com/24wings/keystone-demo#readme",
+  "dependencies": {
+    "@types/angular": "^1.6.5",
+    "@types/angularjs": "^1.5.14-alpha",
+    "angular": "^1.6.2",
+    "angular-route": "^1.6.2",
+    "angular-sanitize": "^1.6.2",
+    "angularjs": "^0.0.1",
+    "jade": "^1.11.0",
+    "keystone": "^4.0.0-beta.5",
+    "swig": "^1.4.2",
+    "underscore": "^1.8.3"
+  }
+}
