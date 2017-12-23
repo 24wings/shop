@@ -3,6 +3,7 @@
     <div class="container">
         <div class="row">
             {%include './mixin/category-list.html' %}
+
             <div class='col-md-10 col-sm-9 product-set-container-column'>
                 <!-- /wangting--这个地方判断产品如果是黑森林，就让超链接到活动界面 -->
                 <!-- <img alt="%e8%af%a6%e6%83%85%e5%9b%be %282%29" class="fly_img" src="{{product.images[0].url}}" /> -->
@@ -30,7 +31,7 @@
                         <div class='swiper-wrapper'>
                             <div class='swiper-slide'>
                                 {%for img in product.images%}
-                                <img alt="6种口味迷你纸杯蛋糕礼盒" class="img-responsive" src="{{img.url}}" /> {%endfor%}
+                                <img alt="{{product.name}}" class="img-responsive" src="{{img.url}}" /> {%endfor%}
                             </div>
 
                         </div>
@@ -72,7 +73,8 @@
                                         <span onclick="$('#product-count').val( ~~$('#product-count').val() <=0? 0: ~~$('#product-count').val()-1)">
                                             <i class="icon-min iconfont" data-reactid=".0.2.0.1"></i>
                                         </span>
-                                        <input type="text" name="productId" value="{{prdocut._id+''}}" hidden>
+                                        <input type="text" id="userId" name="userId" value="{{user._id+''}}" hidden>
+                                        <input type="text" id="productId" name="productId" value="{{product._id+''}}" style="display:none">
                                         <input id="product-count" name="productCount" class="product-count" type="number" value="1" data-reactid=".0.2.0.2">
                                         <span onclick="$('#product-count').val(~~$('#product-count').val()+1)">
                                             <i class="icon-plus iconfont" data-reactid=".0.2.0.3"></i>

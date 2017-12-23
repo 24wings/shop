@@ -15,9 +15,9 @@ exports.getData = async function (req, res) {
 };
 
 exports.getHome = async (req, res) => {
-    let user = req.session.user;
+    let user = req.session.user || res.locals.user;
     let categorys = await keystone.list('ProductCategory').model.find().exec();
-    user = true;
+    console.log('user:', user);
     if (user) {
         let recommandProducts = await keystone.list('RecommandProduct').model.find().populate('product').exec();
         console.log(recommandProducts);
@@ -34,7 +34,7 @@ exports.getLogin = async (req, res) => {
     let user = req.session.user;
     console.log(user);
     if (user) {
-        res.redirect('/home')
+        res.redirect('/')
     } else {
 
         await res.render('login');
@@ -81,14 +81,28 @@ exports.getProductDetail = async (req, res) => {
 }
 
 exports.order = async (req, res) => {
-    let { productId, productCount } = req.body;
-    let user = req.session.user;
+    let { productId, productCount, userId } = req.body;
+    console.log(productId, productCount, userId);
+    let user = await keystone.list('User').model.findById(userId).exec();
     if (user) {
-        let newRecord = await new keystone.list('Record').model({ orderUser: user._id, product: productId, num: productCount }).save();
-        res.redirect('/product/' + productId)
+        let model = await keystone.list('Record');
+        console.log(model);
+        model.model({ orderUser: userId, product: productId, num: ~~productCount }).save();
+        let categorys = await keystone.list('ProductCategory').model.find().exec();
+        let product = await keystone.list('Product').model.findById(productId).populate('productCategory').exec();
+        let category = product.productCategory;
+        let products = await keystone.list('Product').model.find({ productCategory: category._id }).exec();
+        await res.render('productDetail', { product, category, categorys, products, success: `成功下订单${productCount}件` });
+
     } else {
         res.redirect('/login');
     }
 
 
+}
+exports.logout = async (req, res) => {
+    req.session.user = undefined;
+    res.locals.user = undefined;
+    res.clearCookie('user');
+    res.redirect('/');
 }

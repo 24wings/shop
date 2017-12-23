@@ -25,6 +25,10 @@ var routes = {
 };
 
 exports = module.exports = function (app) {
+    app.use('/', async (req, res, next) => {
+        res.locals.user = req.session.user || res.locals.user;
+        await next();
+    })
     app.get('/data', routes.views.data.getData);
     app.get('/', routes.views.data.getHome);
     app.get('/login', routes.views.data.getLogin);
@@ -35,10 +39,7 @@ exports = module.exports = function (app) {
     app.post('/login', routes.views.data.login);
     app.get('/admin', routes.views.admin.getHome);
     app.post('/order', routes.views.data.order);
-
-
-
-    // app.get('/petAction/top3', routes.views.petAction.Top3);
+    app.get('/logout', routes.views.data.logout);
     // app.get('/data/getData', routes.views.data.getData);
     // app.get('/data/getDataById', routes.views.data.getDataById);
 };

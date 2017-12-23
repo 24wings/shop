@@ -8,7 +8,7 @@
   <div class='swiper-wrapper'>
     {%for product in recommandProducts%}
     <div class='swiper-slide flex-center'>
-      <a href='https://www.pantrysbest.com/events/christmas-ziti-huabei'>
+      <a href='/product/{{product.product._id+' '}}'>
         <img src='{{product.product.images[0].url}}' class="img-response">
       </a>
     </div>

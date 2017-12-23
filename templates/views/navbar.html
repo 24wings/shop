@@ -119,17 +119,23 @@
             </li>
         </ul>
         <ul class='nav navbar-nav navbar-right pc-navbar-right hidden-xs'>
-            <li id='sign-in-item'>
-                <a href='/users/sign_in'>登录</a>
+            {%if !!user %}
+            <li>
+                <a>{{user.nickname}}</a>
             </li>
-            <li id='sign-up-item'>
-                <!-- <a href='/users/sign_up'>注册</a> -->
+            <li style="margin-left:20px;">
+                <a href="/logout">登出</a>
             </li>
-            <li id='shopping-cart-summary-nav'>
-                <a class='navbar-font-color' href='/shopping-cart'>
-                    <i class="fa fa-shopping-cart"></i>
-                </a>
+
+
+            {% else %}
+            <li id="sign-in-item">
+                <a href='/login'>登录</a>
             </li>
+
+            {% endif %}
+
+
         </ul>
     </div>
 </div>
