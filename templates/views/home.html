@@ -1,289 +1,112 @@
 {%extends './layout.html' %}
 
-{% for product in recommandProducts %}
-<img src="{{product.product.images[0].url}}" alt="">
-{%endfor%}
-
-
-            {% for category in recommandCategorys %}
-            <tr></tr>
-            {%endfor%}
 
 
 {%block content%}
-  <div data="pantry_1514021245" id="pantry_code"></div>
-  <div data="null" id="user-data"></div>
-  <div data="zh" id="locale-name-data" style="display: none"></div>
-  <div data="https://www.pantrysbest.com" id="server-url-data" style="display: none"></div>
-  <div data="pop_city" id="is-show-popcity-data" style="display: none"></div>
-  <div data="{&quot;id&quot;:21380927,&quot;created_at&quot;:&quot;2017-12-23T15:28:38.000Z&quot;,&quot;updated_at&quot;:&quot;2017-12-23T15:28:38.000Z&quot;,&quot;item_ids&quot;:[],&quot;productsTotal&quot;:0.0,&quot;utensilsTotal&quot;:0,&quot;earliestDeliveryDate&quot;:null,&quot;undeliverDate&quot;:{&quot;1&quot;:[],&quot;2&quot;:[],&quot;3&quot;:[],&quot;4&quot;:[]}}"
-    id="shopping-cart-data"></div>
-  <div data="{&quot;id&quot;:1,&quot;chinese_name&quot;:&quot;北京&quot;}" id="city-data"></div>
-  <div data="2015/03/14 15:09:00" id="activity-start-at"></div>
-  <div data="2015/04/02" id="activity-20150402-start"></div>
-  <div data="2015/04/10" id="activity-20150402-end"></div>
-  <div data="2015/07/07" id="activity-20150710-start"></div>
-  <div data="2015/07/20" id="activity-20150710-end"></div>
-  <div class="hidden-xs navbar navbar-default navbar-fixed-top navbar-static-top" role="navigation">
-    <div class="container" style="padding-right: 0px;padding-left: 0px;">
-      <div class="navbar-header">
-        <div class="navbar-brand">
-          <a href="https://www.pantrysbest.com/">
-            <img alt="Pc%e7%ab%aflogo" src="./Pantry&#39;s Best 派送喜悦_files/pc端logo.png" style="min-width: 205px;">
-          </a>
-          <!-- /%a{href: "/"}= image_tag('logo-normal.png', style: "min-width: 205px;") -->
-        </div>
-      </div>
+
+<div class='hidden-xs' style='height: 50px;'></div>
+<div class='visible-xs' style='height: 100px;'></div>
+<div data='2015/08/05' id='activity-20150805-start'></div>
+<div data='2015/08/22' id='activity-20150805-end'></div>
+<div class='swiper-container pc-slideshows-swiper' id='front-page-carousel'>
+<div class='swiper-wrapper'>
+  {%for product in recommandProducts%}
+<div class='swiper-slide flex-center'>
+<a href='https://www.pantrysbest.com/events/christmas-ziti-huabei'>
+<img src='{{product.product.images[0].url}}' class="img-response">
+</a>
+</div>
+{%endfor%}
+
+
+</div>
+<div class='swiper-pagination pc-swiper-pagination'></div>
+</div>
+<div class='swiper-container mobile-slideshows-swiper' id='mobile-front-page-carousel'>
+<div class='swiper-wrapper'>
+  {% for product in recommandProducts %}
+<div class='swiper-slide'>
+<a href='https://www.pantrysbest.com/events/christmas-ziti-huabei'>
+<img src='{{product.product.images[0].url}}'>
+</a>
+</div>
+{%endfor%}
+</div>
+<div class='swiper-pagination mobile-swiper-pagination'></div>
+</div>
+<div class='container marketing center'>
+<div class='row'>
+<div class='front-page-header'>
+<span class='caret caret-right'></span>
+<b>
+<a class='pantry-green-title' href='/cities/beijing/categories/christmas-specials'>产品列表</a>
+</b>
+</div>
+</div>
+<div class='row'>
+    {%for product in recommandProducts%}
+<div class='col-md-15 col-sm-15 col-xs-6'>
+
+<div>
+<a class='has-img-icon' href='/cities/beijing/categories/christmas-specials'>
+<img alt='圣诞精选' class='img-responsive' src='{{product.product.images[0].url}}'>
+<div class='img-icon new_img'>&nbsp;</div>
+
+</a>
+<span class='size-and-price'>
+ <!-- 类别: {{product.category.name}} -->
+  </span>
+</div>
+<a class='product-category-link' href='/cities/beijing/categories/christmas-specials'>
+{{product.product.name}} 
+</a>
+</div>
+{%endfor%}
+
+</div>
+<div class='container marketing center'>
+<div class='row'>
+<div class='front-page-header'>
+<span class='caret caret-right'></span>
+<b class='pantry-green-title'>新品推荐</b>
+</div>
+</div>
+<div class='row'>
+  {%for category in recommandCategorys %}
+<div class='col-md-3 col-sm-3 col-xs-6'>
+<div class='front-page-product-set-image-container'>
+<a class='has-img-icon' href='/cities/beijing/categories/christmas-specials/products/Christmas-cabin-cake'>
+<img alt='惊叹雪房子蛋糕' class='img-responsive' src='{{category.category.image[0].url}}'>
+<div class='img-icon new_img'>&nbsp;</div>
+
+</a>
+<form accept-charset="UTF-8" action="/shopping-cart" class="front-page-cart-form hidden-xs" data-remote="true" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+<input name='authenticity_token' type='hidden' value='38nor2qECU1f9Cx2ebxzXIv9OS2TTO23t8hm+Yo8bRw='>
+<input name='product_id' type='hidden' value='1010'>
+<input class='shopping-cart-button' type='submit' value=''>
+</form>
+
+</div>
+<div class='chinese-name'>
+<a href='/cities/beijing/categories/christmas-specials/products/Christmas-cabin-cake'>
+<h2 class='product-set-link'>{{category.category.name}}</h2>
+</a>
+<span class='size-and-price'>
+
+</span>
+</div>
+</div>
+{%endfor%}
 
 
 
+</div>
+</div>
+<script>
+  $(document).ready(function(){
+    Pantrysbest.SwiperPantry.init();
+  });
+</script>
+ 
 
-      <ul class="nav navbar-nav middle-nav-ul hidden-xs">
-        <li class="middle-nav-ul-li">
-          |
-        </li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="https://www.pantrysbest.com/cities/beijing#">
-            产品列表
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li>
-              <a href="">圣诞精选</a>
-            </li>
-
-          </ul>
-        </li>
-        <li class="middle-nav-ul-li">
-          |
-        </li>
-        <li>
-          <a class="navbar-font-color" href="https://www.pantrysbest.com/stores">门店</a>
-        </li>
-        <li class="middle-nav-ul-li">
-          |
-        </li>
-        <li>
-          <a class="navbar-font-color" href="https://www.pantrysbest.com/events">活动</a>
-        </li>
-        <li class="dropdown">
-
-          <ul class="dropdown-menu" role="menu">
-            <li>
-              <a href="https://www.pantrysbest.com/pages/huiyuan">会员</a>
-            </li>
-
-          </ul>
-        </li>
-        <li class="middle-nav-ul-li">
-          |
-        </li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="https://www.pantrysbest.com/cities/beijing#">
-            企业合作
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li>
-              <a href="https://www.pantrysbest.com/wedding">甜品台</a>
-            </li>
-            <li>
-              <a href="https://www.pantrysbest.com/free_tast">企业试吃</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right pc-navbar-right hidden-xs">
-        <li id="sign-in-item">
-          <a href="https://www.pantrysbest.com/users/sign_in">登录</a>
-        </li>
-
-        <li id="sign-in-item">
-          <a href="">电话：15920589594杨经理</a>
-        </li>
-
-        <li id="shopping-cart-summary-nav">
-
-          <a class="navbar-font-color" href="https://www.pantrysbest.com/shopping-cart">
-            <i class="fa fa-shopping-cart"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="navbar navbar-default navbar-static-top navbar-fixed-top visible-xs mobile-header-nav" role="navigation">
-    <div class="container" id="mobile-header-nav">
-      <div class="navbar-header">
-        <span id="toggle-mobile-dropdown-nav" style="width: 13%;text-align: left;">
-          <span class="fa fa-bars has-right-icon">
-            <div class="fa fa-circle red_right_icon red_nav_event" style="display: block;"></div>
-          </span>
-        </span>
-        <div class="navbar-brand" style="width: 74%;text-align: center;padding-left: 5px;padding-right: 5px;">
-          <a href="https://www.pantrysbest.com/">
-            <img alt="%e6%89%8b%e6%9c%balogo" src="./Pantry&#39;s Best 派送喜悦_files/手机logo.png">
-          </a>
-          <!-- /%a{href: "/"}= image_tag('logo-mnormal.png') -->
-
-        </div>
-        <a class="toggle-mobile-telephone-nav visible-xs" href="tel:4008314159" style="width: 13%;text-align: right;">
-          <i class="fa fa-phone pantry-green-font"></i>
-        </a>
-      </div>
-
-    </div>
-    <div class="container pantry-height-5px"></div>
-    <a href="https://www.pantrysbest.com/">
-      <div class="col-xs-2 mobile-nav-index div-20-width">
-        <div class="col-xs-12 no-padding">
-          <div class="nav-sup-new">
-            <img alt="Home current" class="nav-icon" src="./Pantry&#39;s Best 派送喜悦_files/home-current-92b57084685a6cf178f40a522e4d076b.png">
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="https://www.pantrysbest.com/cities/beijing/categories/christmas-specials">
-      <div class="col-xs-2 mobile-nav-index div-20-width">
-        <div class="col-xs-12 no-padding">
-          <div class="nav-sup-new">
-            <img alt="Cake" class="nav-icon" src="./Pantry&#39;s Best 派送喜悦_files/cake-f584ee933050cc29a5aa851816611d2d.png">
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="https://www.pantrysbest.com/crm">
-      <div class="col-xs-2 mobile-nav-index div-20-width">
-        <div class="col-xs-12 no-padding">
-          <div class="nav-sup-new">
-            <img alt="User" class="nav-icon v2-nav-icon" src="./Pantry&#39;s Best 派送喜悦_files/user-06354e773e77095cc296c46f5a744ba2.png">
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="https://www.pantrysbest.com/wedding">
-      <div class="col-xs-2 mobile-nav-index div-20-width">
-        <div class="col-xs-12 no-padding">
-          <div class="nav-sup-new">
-            <img alt="Sell" class="nav-icon v2-nav-icon" src="./Pantry&#39;s Best 派送喜悦_files/sell-8c0ce55e8475f125033989769f9ef369.png">
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="https://www.pantrysbest.com/shopping-cart">
-      <div class="col-xs-2 mobile-nav-index div-20-width">
-        <div class="col-xs-12 no-padding">
-          <div class="nav-sup-new">
-            <img alt="Cart" class="nav-icon v2-nav-icon" src="./Pantry&#39;s Best 派送喜悦_files/cart-8c2932d2923fcc89bf4170680752098c.png">
-          </div>
-        </div>
-      </div>
-    </a>
-
-  </div>
-  <div class="hidden-xs" style="height: 50px;"></div>
-  <div class="visible-xs" style="height: 100px;"></div>
-  <div data="2015/08/05" id="activity-20150805-start"></div>
-  <div data="2015/08/22" id="activity-20150805-end"></div>
-  <div class="swiper-container pc-slideshows-swiper swiper-container-horizontal" id="front-page-carousel">
-    <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-1368px, 0px, 0px);">
-      <div class="swiper-slide swiper-slide-prev" style="width: 1368px;">
-        <a href="https://www.pantrysbest.com/events/christmas-ziti-huabei">
-          <img src="./Pantry&#39;s Best 派送喜悦_files/华北PC端.jpg">
-        </a>
-      </div>
-      <div class="swiper-slide swiper-slide-active" style="width: 1368px;">
-        <a href="https://www.pantrysbest.com/card">
-          <img src="./Pantry&#39;s Best 派送喜悦_files/礼品卡pc端.jpg">
-        </a>
-      </div>
-      <div class="swiper-slide swiper-slide-next" style="width: 1368px;">
-        <a href="https://www.pantrysbest.com/cities/beijing/categories/cakes/products/snow-top-mont-blanc-cake">
-          <img src="./Pantry&#39;s Best 派送喜悦_files/轮播图PC端.jpg">
-        </a>
-      </div>
-    </div>
-    <div class="swiper-pagination pc-swiper-pagination swiper-pagination-clickable">
-      <span class="swiper-pagination-bullet"></span>
-      <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
-      <span class="swiper-pagination-bullet"></span>
-    </div>
-  </div>
-  <div class="swiper-container mobile-slideshows-swiper swiper-container-horizontal" id="mobile-front-page-carousel">
-    <div class="swiper-wrapper" style="transition-duration: 0ms;">
-      <div class="swiper-slide swiper-slide-prev">
-        <a href="https://www.pantrysbest.com/events/christmas-ziti-huabei">
-          <img src="./Pantry&#39;s Best 派送喜悦_files/华北手机端.jpg">
-        </a>
-      </div>
-      <div class="swiper-slide swiper-slide-active">
-        <a href="https://www.pantrysbest.com/card">
-          <img src="./Pantry&#39;s Best 派送喜悦_files/礼品卡轮播图手机端.jpg">
-        </a>
-      </div>
-      <div class="swiper-slide swiper-slide-next">
-        <a href="https://www.pantrysbest.com/cities/beijing/categories/cakes/products/snow-top-mont-blanc-cake">
-          <img src="./Pantry&#39;s Best 派送喜悦_files/轮播图手机端.jpg">
-        </a>
-      </div>
-    </div>
-    <div class="swiper-pagination mobile-swiper-pagination swiper-pagination-clickable">
-      <span class="swiper-pagination-bullet"></span>
-      <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
-      <span class="swiper-pagination-bullet"></span>
-    </div>
-  </div>
-  <div class="container marketing center">
-    <div class="row">
-      <div class="front-page-header">
-        <span class="caret caret-right"></span>
-        <b>
-          <a class="pantry-green-title" href="https://www.pantrysbest.com/cities/beijing/categories/christmas-specials">产品列表</a>
-        </b>
-      </div>
-    </div>
-    <div class="row">
-
-      <div class="col-md-15 col-sm-15 col-xs-6">
-        <div>
-          <a class="has-img-icon" href="https://www.pantrysbest.com/cities/beijing/categories/christmas-specials">
-            <img alt="圣诞精选" class="img-responsive" src="./Pantry&#39;s Best 派送喜悦_files/首页产品列表.jpg">
-            <div class="img-icon new_img">&nbsp;</div>
-
-          </a>
-        </div>
-        <a class="product-category-link" href="https://www.pantrysbest.com/cities/beijing/categories/christmas-specials">
-          圣诞精选
-        </a>
-      </div>
-
-    </div>
-
-
-  </div>
-  <div class="container marketing center">
-    <div class="row">
-      <div class="front-page-header">
-        <span class="caret caret-right"></span>
-        <b class="pantry-green-title">新品推荐</b>
-      </div>
-    </div>
-    <div class="row">
-    </div>
-
-    <div class="col-md-3 col-sm-3 col-xs-6">
-      <div class="front-page-product-set-image-container">
-        <a class="has-img-icon" href="https://www.pantrysbest.com/card">
-          <img alt="%e9%a6%96%e9%a1%b5%e6%96%b0%e5%93%81%e6%8e%a8%e8%8d%90" class="img-responsive" src="./Pantry&#39;s Best 派送喜悦_files/首页新品推荐.png">
-        </a>
-      </div>
-      <div class="chinese-name">
-        <a href="https://www.pantrysbest.com/card">
-          <h2 class="product-set-link">电子礼品卡</h2>
-        </a>
-      </div>
-    </div>
-  </div>
-  </div>
-  
   {%endblock%}

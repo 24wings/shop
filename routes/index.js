@@ -9,7 +9,7 @@ keystone.pre('render', middleware.flashMessages);
 
 
 // 404 Error Handle
-keystone.set('404', function(err, req, res, next) {
+keystone.set('404', function (err, req, res, next) {
     var title, message;
     if (err instanceof Error) {
         message = err.message;
@@ -24,12 +24,17 @@ var routes = {
     views: importRoutes('./views')
 };
 
-exports = module.exports = function(app) {
+exports = module.exports = function (app) {
     app.get('/data', routes.views.data.getData);
     app.get('/', routes.views.data.getHome);
-    app.get('/login',routes.views.data.getLogin);
+    app.get('/login', routes.views.data.getLogin);
+    app.get('/category/:_id', routes.views.data.getCategoryDetail);
+    app.get('/product/:_id', routes.views.data.getProductDetail);
+
+
     app.post('/login', routes.views.data.login);
-    app.get('/admin',routes.views.admin.getHome);
+    app.get('/admin', routes.views.admin.getHome);
+
 
 
     // app.get('/petAction/top3', routes.views.petAction.Top3);
