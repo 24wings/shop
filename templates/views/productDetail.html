@@ -62,27 +62,33 @@
 
                         </div>
                         <div class="col-md-5 product-offerings" data-reactid=".0">
-                            <div class="product-sizes" data-reactid=".0.0">
-                                <span class="selected size-selection" data-reactid=".0.0.0">礼盒</span>
-                            </div>
-                            <div class="product-count" data-reactid=".0.2">
-                                <div class="product-count-container" data-reactid=".0.2.0">
-                                    <span id="product-price" data-reactid=".0.2.0.0">¥0</span>
-                                    <span class="fa fa-minus" data-reactid=".0.2.0.1"></span>
-                                    <input id="product-count" name="product_count" class="product-count" type="number"
-                                        value="1" data-reactid=".0.2.0.2">
-                                    <span class="fa fa-plus" data-reactid=".0.2.0.3"></span>
+                            <form action="/order" method="POST">
+                                <div class="product-sizes" data-reactid=".0.0">
+                                    <!-- <span class="selected size-selection" data-reactid=".0.0.0">礼盒</span> -->
                                 </div>
-                                <div id="action-buttons" data-reactid=".0.2.1">
-                                    <div id="buy-now-button" data-reactid=".0.2.1.0">立即购买</div>
-                                    <div id="add-to-cart-button" data-reactid=".0.2.1.1">
-                                        <span class="fa fa-shopping-cart" data-reactid=".0.2.1.1.0"></span>
-                                        <span data-reactid=".0.2.1.1.1">加入购物车</span>
+                                <div class="product-count" data-reactid=".0.2">
+                                    <div class="product-count-container" data-reactid=".0.2.0">
+                                        <!-- <span id="product-price" data-reactid=".0.2.0.0">¥0</span> -->
+                                        <span onclick="$('#product-count').val( ~~$('#product-count').val() <=0? 0: ~~$('#product-count').val()-1)">
+                                            <i class="icon-min iconfont" data-reactid=".0.2.0.1"></i>
+                                        </span>
+                                        <input type="text" name="productId" value="{{prdocut._id+''}}" hidden>
+                                        <input id="product-count" name="productCount" class="product-count" type="number" value="1" data-reactid=".0.2.0.2">
+                                        <span onclick="$('#product-count').val(~~$('#product-count').val()+1)">
+                                            <i class="icon-plus iconfont" data-reactid=".0.2.0.3"></i>
+                                        </span>
                                     </div>
+                                    <div id="action-buttons" data-reactid=".0.2.1">
+                                        <button id="buy-now-button" data-reactid=".0.2.1.0" type="submit">立即下单</button>
+                                        <!-- <div id="add-to-cart-button" data-reactid=".0.2.1.1"> -->
+                                        <!-- <span class="fa fa-shopping-cart" data-reactid=".0.2.1.1.0"></span> -->
+                                        <!-- <span data-reactid=".0.2.1.1.1">加入购物车</span> -->
+                                        <!-- </div> -->
+                                    </div>
+                                    <div id="action-completed-status" data-reactid=".0.2.2"></div>
+                                    <div data-reactid=".0.2.4"></div>
                                 </div>
-                                <div id="action-completed-status" data-reactid=".0.2.2"></div>
-                                <div data-reactid=".0.2.4"></div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                     <!-- <div class='hidden-xs row sweetness_content'>

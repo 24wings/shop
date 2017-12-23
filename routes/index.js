@@ -34,6 +34,7 @@ exports = module.exports = function (app) {
 
     app.post('/login', routes.views.data.login);
     app.get('/admin', routes.views.admin.getHome);
+    app.post('/order', routes.views.data.order);
 
 
 

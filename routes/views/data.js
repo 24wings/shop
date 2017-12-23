@@ -79,3 +79,16 @@ exports.getProductDetail = async (req, res) => {
     let products = await keystone.list('Product').model.find({ productCategory: category._id }).exec();
     await res.render('productDetail', { product, category, categorys, products });
 }
+
+exports.order = async (req, res) => {
+    let { productId, productCount } = req.body;
+    let user = req.session.user;
+    if (user) {
+        let newRecord = await new keystone.list('Record').model({ orderUser: user._id, product: productId, num: productCount }).save();
+        res.redirect('/product/' + productId)
+    } else {
+        res.redirect('/login');
+    }
+
+
+}
