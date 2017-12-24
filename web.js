@@ -12,6 +12,7 @@ require('./models');
 keystone.init({
     'name': '有这个必要吗',
     'brand': ' /data',
+    port:80,
     // 'favicon':'public/favicon.ico',
     'less': 'public',
     'static': 'public',
